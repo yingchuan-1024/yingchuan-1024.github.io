@@ -37,7 +37,7 @@
       <link href="/css/progress_bar.css"/>
       <url>/css/progress_bar.css</url>
       
-        <content type="html"><![CDATA[.loading-img {    background: url(https://yingchuan-1024.github.io/picx-images-hosting/logo.8z6jwi57vb.webp;) no-repeat center center;    background-size: cover;  }]]></content>
+        <content type="html"><![CDATA[.loading-img {    background: url(https://yingchuan-1024.github.io/picx-images-hosting/logo.8z6jwi57vb.webp) no-repeat center center;    background-size: cover;  }]]></content>
       
     </entry>
     
