@@ -5,18 +5,13 @@
   font-weight: lighter;
 } */
 @font-face {
-  font-family: '胖胖猪肉体';
-  src: url('source/css/胖胖猪肉体.woff2') format('woff2'), /* 推荐 */
-       url('source/css/胖胖猪肉体.woff') format('woff'), /* 备选 */
-       url('source/css/胖胖猪肉体.otf') format('opentype'); /* 备选 */
-  font-display: swap;
+  font-family: 胖胖猪肉体;
+  src: url('/css/胖胖猪肉体.woff2');
+  body {
+    font-display: swap;
+    font-weight: lighter;
+    }
 }
-
-body {
-  font-family: '胖胖猪肉体', sans-serif; /* 使用自定义字体，同时提供一个后备字体 */
-  font-weight: lighter;
-}
-
 
 div#menus {
   font-family: "ZhuZiAYuanJWD";
