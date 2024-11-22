@@ -5,8 +5,8 @@
   font-weight: lighter;
 } */
 @font-face {
-  font-family: 胖胖猪肉体;
-  src: url('/css/胖胖猪肉体.woff2');
+  font-family: AaGuXiLaZhangGuanKeAiDeShen;
+  src: url('/css/kawayi.ttf');
   body {
     font-display: swap;
     font-weight: lighter;
