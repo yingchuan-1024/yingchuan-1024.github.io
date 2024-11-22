@@ -5,12 +5,18 @@
   font-weight: lighter;
 } */
 @font-face {
-  font-family: 胖胖猪肉体;
-  src: url('source/css/胖胖猪肉体.otf');
-  body {
-    font-family: FZFW,-apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato, Roboto, "PingFang SC", "STZhongsong", "Lantinghei SC", sans-serif
-    }
+  font-family: '胖胖猪肉体';
+  src: url('source/css/胖胖猪肉体.woff2') format('woff2'), /* 推荐 */
+       url('source/css/胖胖猪肉体.woff') format('woff'), /* 备选 */
+       url('source/css/胖胖猪肉体.otf') format('opentype'); /* 备选 */
+  font-display: swap;
 }
+
+body {
+  font-family: '胖胖猪肉体', sans-serif; /* 使用自定义字体，同时提供一个后备字体 */
+  font-weight: lighter;
+}
+
 
 div#menus {
   font-family: "ZhuZiAYuanJWD";
