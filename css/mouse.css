@@ -1,0 +1,24 @@
+@keyframes arrowCursor {
+      0% { background-image: url('/img/银狼/arrow.ani#0'); }
+      100% { background-image: url('/img/银狼/arrow.ani#1'); }
+    }
+    @keyframes linkCursor {
+      0% { background-image: url('/img/银狼/link.ani#0'); }
+      100% { background-image: url('/img/银狼/link.ani#1'); }
+    }
+    @keyframes beamCursor {
+      0% { background-image: url('/img/银狼/beam.ani#0'); }
+      100% { background-image: url('/img/银狼/beam.ani#1'); }
+    }
+    body {
+      cursor: url('/img/银狼/arrow.ani'), auto;
+      animation: arrowCursor steps(2) infinite;
+    }
+    img {
+      cursor: url('/img/银狼/link.ani'), auto;
+      animation: linkCursor steps(2) infinite;
+    }
+    input, input[type="text"], textarea, span, p, h1, h2, h3, h4, h5, h6 {
+      cursor: url('/img/银狼/beam.ani'), auto;
+      animation: beamCursor steps(2) infinite;
+    }
