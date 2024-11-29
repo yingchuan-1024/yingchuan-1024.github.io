@@ -4,10 +4,10 @@ import { setANICursorWithGroupElement } from "ani-cursor.js";
 
 document.addEventListener('DOMContentLoaded', function() {
     // 为<body>设置动画鼠标指针
-    setANICursor("body", "/img/ani/arrow.ani", "auto", { width: 32, height: 32 });
+    setANICursor("body", "/img/ani/arrow.ani", "auto", width = 32, height = 32 );
 
     // 为<img>设置动画鼠标指针
-    setANICursor("img", "/img/ani/link.ani", "auto", { width: 32, height: 32 });
+    setANICursor("img", "/img/ani/link.ani", "auto", width = 32, height = 32 );
 
     // 为<p>设置动画鼠标指针
     let textAbleGroup = [
@@ -23,6 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         "h5",
         "h6",
     ];
-    setANICursorWithGroupElement(textAbleGroup, "/img/ani/beam.ani", "auto", { width: 32, height: 32 });
+    setANICursorWithGroupElement(textAbleGroup);
 });
  
