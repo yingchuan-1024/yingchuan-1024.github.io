@@ -1,5 +1,5 @@
  
-import { setANICursor } from 'ani-cursor.js';
+import { setANICursor } from "ani-cursor.js";
 import { setANICursorWithGroupElement } from "ani-cursor.js";
 
 document.addEventListener('DOMContentLoaded', function() {
