@@ -1,0 +1,533 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>如何使用JavaScript来判断是否为移动设备 | 颍川</title><meta name="author" content="颍川"><meta name="copyright" content="颍川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="由于移动设备的显示屏幕相对于桌面显示器来说小很多，在桌面显示器上能够正常显示的内容，到了移动设备中就不正常了。为了实现移动端和桌面端的相互跳转，我们可以通过JavaScript来判断当前的设备是否是移动设备，然后执行相应的代码。 通过js来判断当前的设备下面的代码片段能够检测6种不同的移动设备： 12345if( &#x2F;Android|webOS|iPhone|iPad|iPod|BlackBerry">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用JavaScript来判断是否为移动设备">
+<meta property="og:url" content="http://yingchuan-1024.github.io/2024/11/18/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8JavaScript%E6%9D%A5%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87/index.html">
+<meta property="og:site_name" content="颍川">
+<meta property="og:description" content="由于移动设备的显示屏幕相对于桌面显示器来说小很多，在桌面显示器上能够正常显示的内容，到了移动设备中就不正常了。为了实现移动端和桌面端的相互跳转，我们可以通过JavaScript来判断当前的设备是否是移动设备，然后执行相应的代码。 通过js来判断当前的设备下面的代码片段能够检测6种不同的移动设备： 12345if( &#x2F;Android|webOS|iPhone|iPad|iPod|BlackBerry">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yingchuan-1024.github.io/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241118160059.jpg">
+<meta property="article:published_time" content="2024-11-18T03:59:03.000Z">
+<meta property="article:modified_time" content="2024-11-19T09:00:06.418Z">
+<meta property="article:author" content="颍川">
+<meta property="article:tag" content="颍川">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yingchuan-1024.github.io/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241118160059.jpg"><link rel="shortcut icon" href="/img/logo.jpg"><link rel="canonical" href="http://yingchuan-1024.github.io/2024/11/18/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8JavaScript%E6%9D%A5%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '如何使用JavaScript来判断是否为移动设备',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/aplayer/aplayer.css"><link rel="stylesheet" href="/css/APlayer.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/css/runtime/runtime.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="颍川" type="application/atom+xml">
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg" style="background-image: url(/img/微信图片_20241118082319.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/bangumi/"><i class="fa-fw fas fa-tv-retro"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/微信图片_20241118160059.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.jpg" alt="Logo"><span class="site-name">颍川</span></a><a class="nav-page-title" href="/"><span class="site-name">如何使用JavaScript来判断是否为移动设备</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/bangumi/"><i class="fa-fw fas fa-tv-retro"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">如何使用JavaScript来判断是否为移动设备</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-18T03:59:03.000Z" title="发表于 2024-11-18 11:59:03">2024-11-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-19T09:00:06.418Z" title="更新于 2024-11-19 17:00:06">2024-11-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>由于移动设备的显示屏幕相对于桌面显示器来说小很多，在桌面显示器上能够正常显示的内容，到了移动设备中就不正常了。为了实现移动端和桌面端的相互跳转，我们可以通过JavaScript来判断当前的设备是否是移动设备，然后执行相应的代码。</p>
+<p><strong>通过js来判断当前的设备</strong><br>下面的代码片段能够检测6种不同的移动设备：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) &#123;</span><br><span class="line"> // 执行相应代码或直接跳转到手机页面</span><br><span class="line">&#125; else &#123;</span><br><span class="line"> // 执行桌面端代码</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p>上面的js代码可以判断当前设备是否是Android、iPhone或iPad等六种移动设备中的一种。如果你需要单独检测当前设备是否是某种指定的设备，例如是否是iPhone，可以使用下面的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if( iPhone.test(navigator.userAgent) ) &#123;</span><br><span class="line"> alert(&quot;这是iPhone设备&quot;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line"> alert(&quot;不是iPhone设备&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>通过device.js来判断当前的设备</strong><br><a target="_blank" rel="noopener" href="https://github.com/matthewhudson/device.js">device.js</a>是一个用于检查设备操作系统的js插件。使用它可以检测iOS, Android, Blackberry, Windows, Firefox OS, MeeGo, AppleTV等系统，还可以判断当前的设备是横向的还是纵向的。</p>
+<p>device.js会在你的页面<html>元素中插入相应的class类，例如：<br><img src="http://img.htmleaf.com/1705/devicejs-iphone.png" alt="在iphone中使用device.js"><br><img src="http://img.htmleaf.com/1705/devicejs-android.png" alt="在Android平板中使用device.js"><br><img src="http://img.htmleaf.com/1705/devicejs-blackberry.png" alt="在蓝莓系统中使用device.js"></p>
+<p>device.js支持的设备有：</p>
+<ul>
+<li>iOS: iPhone, iPod, iPad</li>
+<li>Android: Phones &amp; Tablets</li>
+<li>Blackberry: Phones &amp; Tablets</li>
+<li>Windows: Phones &amp; Tablets</li>
+<li>Firefox OS: Phones &amp; Tablets</li>
+</ul>
+<p>使用device.js插件的方法是在页面中引入device.js文件，在浏览器解析页面时，根据当前的设备，device.js就会在<html>元素中插入不同的class类。这些class类对应的设备如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>设备名称</th>
+<th>设备名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>iPad</td>
+<td>ios ipad tablet</td>
+</tr>
+<tr>
+<td>iPhone</td>
+<td>ios iphone mobile</td>
+</tr>
+<tr>
+<td>iPod</td>
+<td>ios ipod mobile</td>
+</tr>
+<tr>
+<td>Android Phone</td>
+<td>android mobile</td>
+</tr>
+<tr>
+<td>Android Tablet</td>
+<td>android tablet</td>
+</tr>
+<tr>
+<td>BlackBerry Phone</td>
+<td>blackberry mobile</td>
+</tr>
+<tr>
+<td>BlackBerry Tablet</td>
+<td>blackberry tablet</td>
+</tr>
+<tr>
+<td>Windows Phone</td>
+<td>windows mobile</td>
+</tr>
+<tr>
+<td>Windows Tablet</td>
+<td>windows tablet</td>
+</tr>
+<tr>
+<td>Firefox OS Phone</td>
+<td>fxos mobile</td>
+</tr>
+<tr>
+<td>Firefox OS Tablet</td>
+<td>fxos tablet</td>
+</tr>
+<tr>
+<td>MeeGo</td>
+<td>meego</td>
+</tr>
+<tr>
+<td>Desktop</td>
+<td>desktop</td>
+</tr>
+<tr>
+<td>Television</td>
+<td>television</td>
+</tr>
+</tbody></table>
+<p>根据当前设备屏幕是横向还是纵向的，device.js会在<html>元素中插入相应的class类。</p>
+<table>
+<thead>
+<tr>
+<th>设备方向</th>
+<th>class类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Landscape</td>
+<td>landscape</td>
+</tr>
+<tr>
+<td>Portrait</td>
+<td>portrait</td>
+</tr>
+</tbody></table>
+<p>另外，device.js还提供了一组用于判断设备的js方法，使用方法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(device.mobile())&#123;</span><br><span class="line">    //执行移动设备的方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所有可用的判断方法如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>设备名称</th>
+<th>JavaScript 方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mobile</td>
+<td>device.mobile()</td>
+</tr>
+<tr>
+<td>Tablet</td>
+<td>device.tablet()</td>
+</tr>
+<tr>
+<td>Desktop</td>
+<td>device.desktop()</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>device.ios()</td>
+</tr>
+<tr>
+<td>iPad</td>
+<td>device.ipad()</td>
+</tr>
+<tr>
+<td>iPhone</td>
+<td>device.iphone()</td>
+</tr>
+<tr>
+<td>iPod</td>
+<td>device.ipod()</td>
+</tr>
+<tr>
+<td>Android</td>
+<td>device.android()</td>
+</tr>
+<tr>
+<td>Android Phone</td>
+<td>device.androidPhone()</td>
+</tr>
+<tr>
+<td>Android Tablet</td>
+<td>device.androidTablet()</td>
+</tr>
+<tr>
+<td>BlackBerry</td>
+<td>device.blackberry()</td>
+</tr>
+<tr>
+<td>BlackBerry Phone</td>
+<td>device.blackberryPhone()</td>
+</tr>
+<tr>
+<td>BlackBerry Tablet</td>
+<td>device.blackberryTablet()</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>device.windows()</td>
+</tr>
+<tr>
+<td>Windows Phone</td>
+<td>device.windowsPhone()</td>
+</tr>
+<tr>
+<td>Windows Tablet</td>
+<td>device.windowsTablet()</td>
+</tr>
+<tr>
+<td>Firefox OS</td>
+<td>device.fxos()</td>
+</tr>
+<tr>
+<td>Firefox OS Phone</td>
+<td>device.fxosPhone()</td>
+</tr>
+<tr>
+<td>Firefox OS Tablet</td>
+<td>device.fxosTablet()</td>
+</tr>
+<tr>
+<td>MeeGo</td>
+<td>device.meego()</td>
+</tr>
+<tr>
+<td>Television</td>
+<td>device.television()</td>
+</tr>
+</tbody></table>
+<p>判断设备方向的js方法有：</p>
+<table>
+<thead>
+<tr>
+<th>设备方向</th>
+<th>JavaScript方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Landscape</td>
+<td>device.landscape()</td>
+</tr>
+<tr>
+<td>Portrait</td>
+<td>device.portrait()</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://yingchuan-1024.github.io">颍川</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://yingchuan-1024.github.io/2024/11/18/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8JavaScript%E6%9D%A5%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87/">http://yingchuan-1024.github.io/2024/11/18/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8JavaScript%E6%9D%A5%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://yingchuan-1024.github.io" target="_blank">颍川</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241118160059.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2024/11/14/hello-world/" title="Hello World"><img class="cover" src="/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241118160059.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Hello World</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">颍川</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/18/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8JavaScript%E6%9D%A5%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87/" title="如何使用JavaScript来判断是否为移动设备"><img src="/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241118160059.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何使用JavaScript来判断是否为移动设备"/></a><div class="content"><a class="title" href="/2024/11/18/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8JavaScript%E6%9D%A5%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87/" title="如何使用JavaScript来判断是否为移动设备">如何使用JavaScript来判断是否为移动设备</a><time datetime="2024-11-18T03:59:03.000Z" title="发表于 2024-11-18 11:59:03">2024-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/14/hello-world/" title="Hello World"><img src="/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20241118160059.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2024/11/14/hello-world/" title="Hello World">Hello World</a><time datetime="2024-11-14T01:11:37.398Z" title="发表于 2024-11-14 09:11:37">2024-11-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By 颍川</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v7.3.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v5.2.2" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/js/runtime/runtime.min.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script type="module" src="/js/mouse.js"></script><script async data-pjax src="/js/meting.js"></script><script async data-pjax src="/js/anzhiyu.js"></script><script async data-pjax src="/js/anzhiyufunction.js"></script><script async src="/js/anzhiyuOnlyOne.js"></script><script async src="/js/runtime.js"></script><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><link rel="stylesheet" href="/css/APlayer.min.css" media="print" onload="this.media='all'"><script src="/js/APlayer.min.js"></script><script src="/js/Meting2.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="nav-music"><div id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()">播放音乐</div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script type="module" src="/js/mouse.js"></script><script async data-pjax src="/js/meting.js"></script><script async data-pjax src="/js/anzhiyu.js"></script><script async data-pjax src="/js/anzhiyufunction.js"></script><script async src="/js/anzhiyuOnlyOne.js"></script><script async src="/js/runtime.js"></script><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><link rel="stylesheet" href="/css/APlayer.min.css" media="print" onload="this.media='all'"><script src="/js/APlayer.min.js"></script><script src="/js/Meting2.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div>
