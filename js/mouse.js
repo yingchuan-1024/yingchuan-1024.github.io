@@ -1,6 +1,6 @@
  
-import { setANICursor } from "ani-cursor.js";
-import { setANICursorWithGroupElement } from "ani-cursor.js";
+import { setANICursor } from "ani-cursor.bundle.js";
+import { setANICursorWithGroupElement } from "ani-cursor.bundle.js";
 
     // 为<body>设置动画鼠标指针
     setANICursor("body", "/img/ani/arrow.ani", "auto");
