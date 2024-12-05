@@ -1,26 +1,23 @@
- 
-import { setANICursor } from "ani-cursor.bundle.js";
-import { setANICursorWithGroupElement } from "ani-cursor.bundle.js";
+const { setANICursor, setANICursorWithGroupElement } = require("ani-cursor.js");
 
-    // 为<body>设置动画鼠标指针
-    setANICursor("body", "/img/ani/arrow.ani", "auto");
+// 为<body>设置动画鼠标指针
+setANICursor("body", "/img/ani/arrow.ani", "auto");
 
-    // 为<img>设置动画鼠标指针
-    setANICursor("img", "/img/ani/link.ani", "auto");
+// 为<img>设置动画鼠标指针
+setANICursor("img", "/img/ani/link.ani", "auto");
 
-    // 为<p>设置动画鼠标指针
-    let textAbleGroup = [
-        "input",
-        'input[type="text"]',
-        "textarea",
-        "span",
-        "p",
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6",
-    ];
-    setANICursorWithGroupElement(textAbleGroup,"/img/ani/beam.ani");
- 
+// 为<p>设置动画鼠标指针
+let textAbleGroup = [
+    "input",
+    'input[type="text"]',
+    "textarea",
+    "span",
+    "p",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+];
+setANICursorWithGroupElement(textAbleGroup, "/img/ani/beam.ani");
