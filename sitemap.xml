@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/Doris_ride.model3.json</loc>
+    
+    <lastmod>2024-12-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yingchuan-1024.github.io/Miss/yunxian_2/yunxian_2.model3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
@@ -299,7 +308,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle8.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle9.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -308,7 +317,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle9.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle8.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -335,7 +344,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle4.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle5.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -344,7 +353,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle5.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle4.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -425,15 +434,6 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle13.motion3.json</loc>
-    
-    <lastmod>2024-12-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle12.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle10.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle13.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -453,6 +453,15 @@
   
   <url>
     <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle11.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/touch_idle10.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -587,7 +596,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/idle8.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/idle7.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -596,7 +605,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/idle7.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/shengluyisi_5/motions/idle8.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -794,7 +803,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E6%AD%A3%E5%B8%B8%E5%BE%85%E6%9C%BA%EF%BC%88%E6%9C%8D%EF%BC%89.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E6%AD%A3%E5%B8%B8%E5%BE%85%E6%9C%BA%EF%BC%88%E8%A3%B8%EF%BC%89.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -803,7 +812,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E6%AD%A3%E5%B8%B8%E5%BE%85%E6%9C%BA%EF%BC%88%E8%A3%B8%EF%BC%89.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E6%AD%A3%E5%B8%B8%E5%BE%85%E6%9C%BA%EF%BC%88%E6%9C%8D%EF%BC%89.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -839,7 +848,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E5%BC%80%E8%85%BF%E5%BE%85%E6%9C%BA.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E5%B0%84%E7%B2%BE%E5%90%8E%E7%9A%84%E5%BE%85%E6%9C%BA(%E8%8F%8A).motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -848,7 +857,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E5%B0%84%E7%B2%BE%E5%90%8E%E7%9A%84%E5%BE%85%E6%9C%BA(%E8%8F%8A).motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E5%BC%80%E8%85%BF%E5%BE%85%E6%9C%BA.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -866,7 +875,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E5%B0%84%E7%B2%BE%E5%90%8E%E6%8B%94%E5%87%BA(%E7%A9%B4).motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E5%B0%84%E7%B2%BE%E5%90%8E%E7%9A%84%E5%BE%85%E6%9C%BA(%E7%A9%B4).motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -875,7 +884,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E5%B0%84%E7%B2%BE%E5%90%8E%E7%9A%84%E5%BE%85%E6%9C%BA(%E7%A9%B4).motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/sry_h1/motions/%E5%B0%84%E7%B2%BE%E5%90%8E%E6%8B%94%E5%87%BA(%E7%A9%B4).motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -1064,7 +1073,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/20_gonobolia.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/19_piston3.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -1073,7 +1082,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/19_piston3.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/20_gonobolia.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -1091,7 +1100,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/18_piston2.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/17_piston1.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -1100,7 +1109,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/17_piston1.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/18_piston2.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -1154,7 +1163,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/10_idle.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/11_idle.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -1172,7 +1181,7 @@
   </url>
   
   <url>
-    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/11_idle.motion3.json</loc>
+    <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/10_idle.motion3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
@@ -1245,6 +1254,123 @@
   
   <url>
     <loc>http://yingchuan-1024.github.io/Miss/my_h1/motions/01_idle.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/motion/Stay.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/motion/4_2_1_3.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/motion/4_2_1_2.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/motion/4_2_1_1.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/motion/4_1_2_2.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/motion/4_1_2_1.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/motion/4_1_1_4_1.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/motion/4_1_1_4_2.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/motion/4_1_1_3_2.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/motion/4_1_1_3_1.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/Doris_ride.physics3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/motion/4_1_1_2.motion3.json</loc>
+    
+    <lastmod>2024-12-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yingchuan-1024.github.io/Miss/Doris_ride/Doris_ride.cdi3.json</loc>
     
     <lastmod>2024-12-21</lastmod>
     
