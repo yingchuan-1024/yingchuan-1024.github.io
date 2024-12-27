@@ -26,7 +26,6 @@ a.categoryBar-list-link,
 h1.post-title {
   font-family: AaGuXiLaZhangGuanKeAiDeShen;
 }
-
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 3em;
@@ -34,14 +33,44 @@ h1.post-title {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-svg.icon {
-  width: 1em; height: 1em;
-  /* width和height定义图标的默认宽度和高度*/
-  vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
-}
+  }
+  /* 若已经在项目设置中勾选了彩色选项，则无需再定义图标颜色*/
+  .icon-rat:before {
+    color: #85c3de;
+  }
+  .icon-ox:before {
+    color: #ffaf6e;
+  }
+  .icon-tiger:before {
+    color: #f7c768;
+  }
+  .icon-rabbit:before {
+    color: #ffbdd8;
+  }
+  .icon-dragon:before {
+    color: #ff8787;
+  }
+  .icon-snake:before {
+    color: #c3d686;
+  }
+  .icon-horse:before {
+    color: #ffaf6e;
+  }
+  .icon-goat:before {
+    color: #f7c768;
+  }
+  .icon-monkey:before {
+    color: #c3d686;
+  }
+  .icon-rooster:before {
+    color: #ff8787;
+  }
+  .icon-dog:before {
+    color: #85c3de;
+  }
+  .icon-boar:before {
+    color: #ffbdd8;
+  }
 /* 时间轴生肖icon */
 svg.icon {
   /* 这里定义svg.icon，避免和Butterfly自带的note标签冲突 */
