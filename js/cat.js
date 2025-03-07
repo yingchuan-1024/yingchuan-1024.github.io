@@ -34,7 +34,7 @@ if (document.body.clientWidth > 992) {
                 borderRadius: 5 + 'px',
                 right: 60 + 'px',
                 // 这里可以换为你喜欢的图片，例如我就换为了雪人，但是要抠图
-                nekoImg: "https://img.yingchuan.us.kg/file/1741328746305_拉绳.png",
+                nekoImg: "/img/拉绳.png",
                 hoverMsg: "就让你碰一下（＞д＜）~",
                 color: "#6f42c1",
                 during: 500,
