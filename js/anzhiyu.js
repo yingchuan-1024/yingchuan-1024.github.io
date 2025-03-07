@@ -55,6 +55,10 @@ var anzhiyu = {
     return arr[0];
   },
 };
-
 // 如果有右键事件 可以在这里写。
 // addRightMenuClickEvent();
+const metingJs = document.querySelector("#nav-music meting-js");
+//判断是否是音乐
+if (metingJs.contains(event.target)) {
+} else {
+}

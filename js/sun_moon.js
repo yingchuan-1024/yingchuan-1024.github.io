@@ -25,21 +25,21 @@ function switchNightMode() {
         // GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
         document.getElementById('modeicon').setAttribute('xlink:href', '#icon-sun')
         // 延时弹窗提醒
-        // setTimeout(() => {
-        //     new Vue({
-        //         data: function () {
-        //             this.$notify({
-        //                 title: "关灯啦🌙",
-        //                 message: "当前已成功切换至夜间模式！",
-        //                 position: 'top-left',
-        //                 offset: 50,
-        //                 showClose: true,
-        //                 type: "success",
-        //                 duration: 5000
-        //             });
-        //         }
-        //     })
-        // }, 2000)
+        setTimeout(() => {
+            new Vue({
+                data: function () {
+                    this.$notify({
+                        title: "关灯啦🌙",
+                        message: "当前已成功切换至夜间模式！",
+                        position: 'top-left',
+                        offset: 50,
+                        showClose: true,
+                        type: "success",
+                        duration: 5000
+                    });
+                }
+            })
+        }, 2000)
     } else {
         // 先设置太阳月亮透明度
         document.getElementById("sun").style.opacity = "0";
@@ -52,21 +52,21 @@ function switchNightMode() {
         activateLightMode()
         saveToLocal.set('theme', 'light', 2)
         document.querySelector('body').classList.add('DarkMode'), document.getElementById('modeicon').setAttribute('xlink:href', '#icon-moon')
-        // setTimeout(() => {
-        //     new Vue({
-        //         data: function () {
-        //             this.$notify({
-        //                 title: "开灯啦🌞",
-        //                 message: "当前已成功切换至白天模式！",
-        //                 position: 'top-left',
-        //                 offset: 50,
-        //                 showClose: true,
-        //                 type: "success",
-        //                 duration: 5000
-        //             });
-        //         }
-        //     })
-        // }, 2000)
+        setTimeout(() => {
+            new Vue({
+                data: function () {
+                    this.$notify({
+                        title: "开灯啦🌞",
+                        message: "当前已成功切换至白天模式！",
+                        position: 'top-left',
+                        offset: 50,
+                        showClose: true,
+                        type: "success",
+                        duration: 5000
+                    });
+                }
+            })
+        }, 2000)
     }
     // handle some cases
     typeof utterancesTheme === 'function' && utterancesTheme()
