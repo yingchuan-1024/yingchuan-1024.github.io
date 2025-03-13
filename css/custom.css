@@ -88,8 +88,8 @@ svg.icon {
 
 /* bilibli番剧插件 */
 #article-container .bangumi-tab.bangumi-active {
-  background: var(--anzhiyu-theme);
-  color: var(--anzhiyu-ahoverbg);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--anzhiyu-ahoverbg) !important;
   border-radius: 10px;
 }
 a.bangumi-tab:hover {
@@ -136,8 +136,52 @@ svg.icon.faa-tada {
 
 /* 首页文章卡片 */
 #recent-posts > .recent-post-item {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+  position: relative;
+  transform-style: preserve-3d;
+  border-radius: 12px !important;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* 封面图透视增强 */
+.recent-post-item .post_cover {
+  transform: perspective(1200px) translateZ(0);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.recent-post-item:hover .post_cover {
+  transform: perspective(1200px) translateZ(30px);
+}
+
+/* 卡片底部光效 */
+.recent-post-item::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 15%;
+  width: 70%;
+  height: 20px;
+  background: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.recent-post-item:hover::after {
+  transform: 
+    translateY(5px) 
+    scaleX(0.95);
+  opacity: 0.8;
+}
+@media (max-width: 768px) {
+  .recent-post-item:hover {
+    transform: 
+      translateZ(15px) 
+      rotateX(4deg) 
+      rotateY(-3deg) !important; /* 移动端减半处理 */
+  }
+}
+.recent-post-item:hover::after {
+  opacity: 0.6;
 }
 
 /* 首页侧栏卡片 */
@@ -510,7 +554,6 @@ div#category {
   --anzhiyu-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
   --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
   --anzhiyu-card-border: #42444a;
-  --yingchuan-nav:linear-gradient(220.55deg, #DDE4FF 0%, #8DA2EE 100%);
   --yingchuan-bg:#8DA2EE;
 }
 
