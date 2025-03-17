@@ -30,7 +30,7 @@ if (document.body.clientWidth > 992) {
                 top: '0',
                 scroWidth: 6 + 'px',
                 z_index: 9999,
-                zoom: 1.2,
+                zoom: 1.5,
                 borderRadius: 5 + 'px',
                 right: 60 + 'px',
                 // 这里可以换为你喜欢的图片，例如我就换为了雪人，但是要抠图
@@ -125,6 +125,10 @@ if (document.body.clientWidth > 992) {
             zoom: 0.9
         }
         );
+    $("#myscoll").nekoScroll({
+        nekoWidth: '100px',  // 自定义宽度
+        nekoHeight: '150px'  // 自定义高度
+      });
         //自定义（去掉以下注释，并注释掉其他的查看效果）
         /*
         $("#myscoll").nekoScroll({
