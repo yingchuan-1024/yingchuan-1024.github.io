@@ -566,7 +566,7 @@ div#category {
   top: 10%;
   left: 10%;
     /* 菜单面板背景色 */
-  background-color: var(--yingchuan-bg);
+  background-color: var(--anzhiyu-scrollbar);
     /* 菜单面板文字颜色 */
   border: 1px solid var(--anzhiyu-card-border);
   border-radius: 8px;
