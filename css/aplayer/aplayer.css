@@ -121,7 +121,8 @@
 }
 #nav-music #nav-music-hoverTips {
   color: var(--anzhiyu-white);
-  background: var(--anzhiyu-main);
+  background: rgb(247,150,192);
+  background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 100%);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -152,22 +153,37 @@
   display: none;
 }
 
+@keyframes breathing-border {
+  0% {
+    border-color: rgba(255, 182, 193, 0.5);
+  }
+  50% {
+    border-color: rgba(255, 182, 193, 1);
+  }
+  100% {
+    border-color: rgba(255, 182, 193, 0.5);
+  }
+}
+
 #nav-music .aplayer {
-  background: var(--card-bg);
+  background: rgba(255, 182, 193, 0.5); /* 半透明粉红色 */
   border-radius: 60px;
   height: 41px;
   display: flex;
   margin: 0;
   transition: 0.3s;
-  border: var(--style-border);
+  border: 2px solid rgba(255, 182, 193, 0.5); /* 初始边框颜色 */
   box-shadow: none;
+  animation: breathing-border 2s infinite; /* 应用呼吸灯动画 */
 }
 
+
 #nav-music.playing .aplayer {
-  background: var(--anzhiyu-main-op-deep);
-  border: var(--style-border-hover);
+  background: rgba(255, 182, 193, 0.5); 
+  border: 2px solid rgba(255, 182, 193, 0.5);
   backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: blur(20px);
+  animation: breathing-border 2s infinite;
 }
 
 #nav-music .aplayer .aplayer-notice {
