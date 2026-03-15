@@ -1,1 +1,1 @@
-http://yingchuan-1024.github.io/2026/03/05/hello-world/
+http://yingchuan-1024.github.io/2025/11/18/%E5%9F%BA%E4%BA%8EArduino%E7%9A%84esp32OTA%E6%9B%B4%E6%96%B0%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/
