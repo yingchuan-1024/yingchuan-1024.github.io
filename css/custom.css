@@ -554,7 +554,6 @@ div#category {
   --anzhiyu-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
   --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
   --anzhiyu-card-border: #42444a;
-  --yingchuan-bg:#8DA2EE;
 }
 
 /* 右键菜单 */
@@ -566,7 +565,7 @@ div#category {
   top: 10%;
   left: 10%;
     /* 菜单面板背景色 */
-  background-color: var(--yingchuan-bg);
+  background-color: rgba(18, 110, 196, 0.4);
     /* 菜单面板文字颜色 */
   border: 1px solid var(--anzhiyu-card-border);
   border-radius: 8px;

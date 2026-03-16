@@ -51,6 +51,10 @@ function insertAtCursor(myField, myValue) {
 
 let rmf = {};
 rmf.showRightMenu = function (isTrue, x = 0, y = 0) {
+    if (typeof $ === 'undefined') {
+        console.warn('jQuery 未加载，右键菜单无法显示');
+        return;
+    }
     let $rightMenu = $('#rightMenu');
     $rightMenu.css('top', x + 'px').css('left', y + 'px');
 
